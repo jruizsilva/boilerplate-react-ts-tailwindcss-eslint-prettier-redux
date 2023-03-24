@@ -1,4 +1,6 @@
 import { BrowserRouter, Navigate, Route } from 'react-router-dom'
+import { Container } from './components'
+import { Navbar } from './components/Navbar'
 import { PrivateRoutes } from './models'
 import { RoutesWithNotFound } from './utilities'
 
@@ -7,13 +9,14 @@ function App (): JSX.Element {
 
   return (
     <>
-      <button className='bg-red-900'>
-        hola
-      </button>
+
       <BrowserRouter>
-        <RoutesWithNotFound>
-          <Route path='/' element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
-        </RoutesWithNotFound>
+        <Navbar />
+        <Container>
+          <RoutesWithNotFound>
+            <Route path='/' element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
+          </RoutesWithNotFound>
+        </Container>
       </BrowserRouter>
     </>
   )
