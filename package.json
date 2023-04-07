@@ -1,5 +1,5 @@
 {
-  "name": "standard-with-typescript",
+  "name": "boilerplate-react-ts-tailwindcss-eslint-prettier-redux",
   "private": true,
   "version": "0.0.0",
   "type": "module",
