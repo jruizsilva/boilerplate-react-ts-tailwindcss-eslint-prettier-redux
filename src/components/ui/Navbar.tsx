@@ -1,21 +1,25 @@
 import { NavLink } from 'react-router-dom'
 import { PrivateRoutes } from '../../models'
 import { useAppDispatch, useAppSelector } from 'hooks/redux'
-import { setAccessToken } from 'redux/slices/auth/authSlice'
+import { login, setAccessToken } from 'redux/slices/auth/authSlice'
+import { persistor } from 'redux/store'
 
-interface Props {
-  name?: string
-}
+interface Props {}
 
 export function Navbar(props: Props): JSX.Element {
   const { auth } = useAppSelector((state) => state)
   const dispatch = useAppDispatch()
 
   const handleLogin = () => {
-    dispatch(setAccessToken('dasdsadasdasds'))
+    dispatch(
+      login({
+        email: 'eve.holt@reqres.in',
+        password: 'cityslicka'
+      })
+    )
   }
   const handleLogout = () => {
-    dispatch(setAccessToken(null))
+    persistor.purge()
   }
 
   return (
